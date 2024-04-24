@@ -46,6 +46,7 @@ export const ExportComponent = styled('div')`
     height: 52px;
     margin: 100px 70px 198px;
     button {
+      height: 52px;
       width: 200px;
       font-family: 'Inter';
       font-style: normal;
@@ -53,7 +54,7 @@ export const ExportComponent = styled('div')`
       font-size: 20px;
       line-height: 24px;
       color: #4764FF;
-      height: 52px;
+
 
     }
 `
