@@ -1,0 +1,49 @@
+import React, { useState } from 'react';
+import { Skeleton, Row, Col } from 'antd';
+import * as Styled from '../Template.styled';
+
+type SizeType = 'default' | 'small' | 'large';
+type AvatarShapeType = 'circle' | 'square';
+
+const CenterAlign: React.FC = () => {
+  const [avatarShape, setAvatarShape] = useState<AvatarShapeType>('circle');
+  const [size, setSize] = useState<SizeType>('default');
+  const [block, setBlock] = useState(false);
+
+  return (
+    <Styled.CenterCardComponent>
+      <Styled.RowContainer gutter={24}>
+        <Styled.ColumnContainer span={24}>
+          <Skeleton.Image />
+          <Styled.RowIcons gutter={[10, 0]} justify='center'>
+            <Col>
+              <Skeleton.Avatar size={16} shape={avatarShape} />
+            </Col>
+            <Col>
+              <Skeleton.Avatar size={16} shape={avatarShape} />
+            </Col>
+            <Col>
+              <Skeleton.Avatar size={16} shape={avatarShape} />
+            </Col>
+          </Styled.RowIcons>
+        </Styled.ColumnContainer>
+        <Styled.CenterTextContainer span={12}>
+          <Row gutter={[0, 2]}>
+            <Styled.SkeletonCol>
+              <Skeleton.Input size={size} block={block} />
+            </Styled.SkeletonCol>
+            <Styled.SmallSkeletonCol>
+              <Skeleton.Input size="small" block={block} active={false} />
+            </Styled.SmallSkeletonCol>
+          </Row>
+          <Styled.SkeletonContainer paragraph={{ rows: 4, width: ['122', '122', '122', '61'] }} />
+        </Styled.CenterTextContainer>
+      </Styled.RowContainer>
+      <Styled.LayoutTitle>
+        <Styled.CenterLayoutTitle>Center aligned layout</Styled.CenterLayoutTitle>
+    </Styled.LayoutTitle>
+    </Styled.CenterCardComponent>
+  );
+};
+
+export default CenterAlign;
